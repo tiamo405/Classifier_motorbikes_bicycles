@@ -9,12 +9,15 @@ from torch import nn
 from torchvision import transforms
 from config import config
 
+from utils import utils_save_cfg, utils_model, utils_loss
+
 class Model():
     
     def __init__(self, load_height, load_width ,
                  checkpoint_dir, device):
 
         self.model = torchvision.models.resnet101(pretrained = False)
+        self.model = utils_model.create_model(name_model= 'resnet50', num_classes= 2)
         num_features = self.model.fc.in_features
         self.model.fc = nn.Linear(num_features, 2) # khởi tạo mô hình = trẻ 3 tuổi
         self.device = device # gán biến
