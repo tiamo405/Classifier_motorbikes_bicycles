@@ -54,23 +54,27 @@ def train(args):
     
     # lưu các biến khởi tạo vào 1 file
     if SAVE_CKPT :
-        utils_save_cfg.save_cfg(cfg= cfg, checkpoint_dir= CHECKPOINT_DIR, name_model= NAME_MODEL, num_save_file= dir_save_file)
+        utils_save_cfg.save_cfg(cfg= cfg, checkpoint_dir= CHECKPOINT_DIR, name_model= NAME_MODEL, dir_save_file= dir_save_file)
 
     # khởi tạo data
-    Dataset_train = Datasets(path_data= os.path.join(DATA_ROOT, 'train'), load_width= LOAD_WIDTH,\
-                          load_height= LOAD_HEIGHT, nb_classes= NUM_CLASSES)
-    Dataset_val = Datasets(path_data= os.path.join(DATA_ROOT, 'valid'), load_width= LOAD_WIDTH,\
+    Dataset = Datasets(path_data= DATA_ROOT, load_width= LOAD_WIDTH,\
                           load_height= LOAD_HEIGHT, nb_classes= NUM_CLASSES)
     
+    # chia dữ liệu làm 80% để huấn luyện
+    train_size = int(0.8 * len(Dataset))
+    val_size = len(Dataset) - train_size
+    trainDataset, valDataset = random_split(Dataset, [train_size, val_size]) # 0 1 2 3 4 5 6 7 8 9 , [8,2] 
 
-
-    trainLoader = DataLoader(Dataset_train, batch_size=BATCH_SIZE, \
+    # chuyêmr dữ liệu sang 1 định dạng để máy đọc được
+    # batch_size : nhóm các hình ảnh với nhau thành 1 tệp ( ví dụ 16 hình ảnh 1 lúc để học trong 1 lần)
+    # 3 cái còn lại đọc docs or chatgpt
+    trainLoader = DataLoader(trainDataset, batch_size=BATCH_SIZE, \
                              shuffle= True, num_workers= NUM_WORKERS) # ép về giáo viên 
-    valLoader = DataLoader(Dataset_val, batch_size=BATCH_SIZE, \
+    valLoader = DataLoader(valDataset, batch_size=BATCH_SIZE, \
                            shuffle= True, num_workers= NUM_WORKERS)
     dataset_sizes = {
-        'train' : len(Dataset_train),
-        'val' : len(Dataset_val),
+        'train' : len(trainDataset),
+        'val' : len(valDataset),
     }
     dataLoader = { 
         'train' : trainLoader,  

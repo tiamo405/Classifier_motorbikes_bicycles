@@ -18,15 +18,15 @@ class Datasets(data.Dataset) :
             transforms.ToTensor(),
             transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)) #RBG - RGB 0-1 tensor type numpy int float gpu để train
         ])
-        path_images = [] # đường dẫn  data/train/xemay_0000.jpg
+        path_images = [] # đường dẫn  data/train/xemay/xemay_0000.jpg
         labels = [] # 0 1 0 1 0 1 0 1 1 1 1  0 0 0 1 0 1 0 1 0 0 
         dict_class = {'xedap': 0, 'xemay' : 1}
         
-        images = os.listdir(self.path_data)
-        for fname in images:
-            if '.jpg' in fname or '.png' in fname :
-                path_images.append(os.path.join(self.path_data, fname))
-                labels.append(dict_class[fname.split('_')[0]])
+        for label in os.listdir(self.path_data) : 
+            for fname in os.listdir(os.path.join(self.path_data, label)) :
+                if '.jpg' in fname or '.png' in fname :
+                    path_images.append(os.path.join(self.path_data, label, fname))
+                    labels.append(dict_class[label]) 
         
         self.path_images = path_images
         self.labels = labels

@@ -1,22 +1,14 @@
-2023-05-01 16:50:45,557 train.py:104	 INFO: ******************************
-2023-05-01 16:50:45,558 train.py:105	 INFO: Start train: name model: resnet101, run times 0004
-2023-05-01 17:03:26,174 train.py:146	 INFO: Epoch 1 train Loss: 0.0880 Acc: 0.9693
-2023-05-01 17:04:33,938 train.py:146	 INFO: Epoch 1 val Loss: 0.0493 Acc: 0.9826
-2023-05-01 17:19:09,101 train.py:146	 INFO: Epoch 2 train Loss: 0.0591 Acc: 0.9777
-2023-05-01 17:20:17,175 train.py:146	 INFO: Epoch 2 val Loss: 0.0718 Acc: 0.9725
-2023-05-01 17:34:45,992 train.py:146	 INFO: Epoch 3 train Loss: 0.0491 Acc: 0.9823
-2023-05-01 17:35:53,942 train.py:146	 INFO: Epoch 3 val Loss: 0.0556 Acc: 0.9792
-2023-05-01 17:50:13,062 train.py:146	 INFO: Epoch 4 train Loss: 0.0528 Acc: 0.9806
-2023-05-01 17:51:20,563 train.py:146	 INFO: Epoch 4 val Loss: 0.0953 Acc: 0.9667
-2023-05-01 18:05:33,585 train.py:146	 INFO: Epoch 5 train Loss: 0.0529 Acc: 0.9814
-2023-05-01 18:06:38,279 train.py:146	 INFO: Epoch 5 val Loss: 0.0630 Acc: 0.9733
-2023-05-01 18:20:41,088 train.py:146	 INFO: Epoch 6 train Loss: 0.0177 Acc: 0.9942
-2023-05-01 18:21:47,321 train.py:146	 INFO: Epoch 6 val Loss: 0.0399 Acc: 0.9854
-2023-05-01 18:35:43,154 train.py:146	 INFO: Epoch 7 train Loss: 0.0055 Acc: 0.9987
-2023-05-01 18:36:50,965 train.py:146	 INFO: Epoch 7 val Loss: 0.0409 Acc: 0.9860
-2023-05-01 18:50:40,860 train.py:146	 INFO: Epoch 8 train Loss: 0.0031 Acc: 0.9994
-2023-05-01 18:51:46,393 train.py:146	 INFO: Epoch 8 val Loss: 0.0431 Acc: 0.9860
-2023-05-01 19:05:35,568 train.py:146	 INFO: Epoch 9 train Loss: 0.0020 Acc: 0.9998
-2023-05-01 19:06:38,000 train.py:146	 INFO: Epoch 9 val Loss: 0.0413 Acc: 0.9872
-2023-05-01 19:20:23,027 train.py:146	 INFO: Epoch 10 train Loss: 0.0022 Acc: 0.9995
-2023-05-01 19:21:24,924 train.py:146	 INFO: Epoch 10 val Loss: 0.0440 Acc: 0.9876
+2023-09-27 23:33:15,506 train.py:104	 INFO: ******************************
+2023-09-27 23:33:15,506 train.py:105	 INFO: Start train: name model: resnet101, run times 2023-09-27
+2023-09-27 23:33:28,631 train.py:146	 INFO: Epoch 1 train Loss: 0.2310 Acc: 0.9097
+2023-09-27 23:33:29,906 train.py:146	 INFO: Epoch 1 val Loss: 0.3547 Acc: 0.8613
+2023-09-27 23:33:44,980 train.py:146	 INFO: Epoch 2 train Loss: 0.0940 Acc: 0.9624
+2023-09-27 23:33:46,259 train.py:146	 INFO: Epoch 2 val Loss: 0.2632 Acc: 0.9451
+2023-09-27 23:34:01,548 train.py:146	 INFO: Epoch 3 train Loss: 0.0399 Acc: 0.9855
+2023-09-27 23:34:02,834 train.py:146	 INFO: Epoch 3 val Loss: 0.2623 Acc: 0.9451
+2023-09-27 23:34:18,118 train.py:146	 INFO: Epoch 4 train Loss: 0.0585 Acc: 0.9805
+2023-09-27 23:34:19,460 train.py:146	 INFO: Epoch 4 val Loss: 0.1748 Acc: 0.9509
+2023-09-27 23:34:34,905 train.py:146	 INFO: Epoch 5 train Loss: 0.0450 Acc: 0.9870
+2023-09-27 23:34:36,394 train.py:146	 INFO: Epoch 5 val Loss: 0.1872 Acc: 0.9566
+2023-09-27 23:34:51,749 train.py:146	 INFO: Epoch 6 train Loss: 0.0176 Acc: 0.9957
+2023-09-27 23:34:53,253 train.py:146	 INFO: Epoch 6 val Loss: 0.1993 Acc: 0.9566

@@ -1,6 +1,6 @@
 import torch
 import math
-from timm.loss import LabelSmoothingCrossEntropy, SoftTargetCrossEntropy
+# from timm.loss import LabelSmoothingCrossEntropy, SoftTargetCrossEntropy
 import torch.nn as nn
 import torch.nn.functional as F
 from torch import Tensor
