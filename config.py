@@ -2,7 +2,7 @@ import torch
 config = {
     'train': dict(
     BATCH_SIZE = 16,
-    EPOCHS = 10,
+    EPOCHS = 20,
     TRAIN_ON = 'ssh',
     DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu"),
 
