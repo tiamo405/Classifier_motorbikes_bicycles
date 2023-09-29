@@ -84,13 +84,16 @@ def train(args):
     print("device :", DEVICE) # cpu or gpu
     
     # 
-    if NAME_MODEL == 'resnet101':
-        model = torchvision.models.resnet101(pretrained = True) # khởi tạo mô hình 
-        num_features = model.fc.in_features
-        model.fc = nn.Linear(num_features, 2)
-    else:
-        model = utils_model.create_model(name_model= NAME_MODEL, num_classes= NUM_CLASSES)
-   
+    # if NAME_MODEL == 'resnet101':
+    #     model = torchvision.models.resnet101(pretrained = True) # khởi tạo mô hình 
+    #     num_features = model.fc.in_features
+    #     model.fc = nn.Linear(num_features, 2)
+    # else:
+    #     model = utils_model.create_model(name_model= NAME_MODEL, num_classes= NUM_CLASSES)
+    model = torchvision.models.vgg16()
+    num_features = model.classifier[6].in_features
+
+    model.classifier[6] = nn.Linear(num_features, 2)
     model.to(device= DEVICE) # chuyển mô hình sang sử dung gpu hay cpu
     print(model)
     criterion = utils_loss.create_loss(name_loss= NAME_LOSS, num_classes= NUM_CLASSES) # khởi tạo hàm tính hàm mất mát
@@ -187,7 +190,7 @@ def get_args_parser(): #
     parser.add_argument('--config', type= str, default= 'train')
     parser.add_argument('--data_root', type= str, default='data/train')
     parser.add_argument('--checkpoint_dir', type= str, default= 'checkpoint')
-    parser.add_argument('--name_model', type= str, default= 'resnet50')
+    parser.add_argument('--name_model', type= str, default= 'vgg16')
     opt = parser.parse_args()
     return opt
 
