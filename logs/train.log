@@ -24,3 +24,11 @@
 2023-09-29 15:25:50,757 train.py:149	 INFO: Epoch 11 val Loss: 0.4694 Acc: 0.8064
 2023-09-29 15:29:10,707 train.py:149	 INFO: Epoch 12 train Loss: 0.2263 Acc: 0.9140
 2023-09-29 15:29:12,010 train.py:149	 INFO: Epoch 12 val Loss: 0.4754 Acc: 0.8064
+2023-09-29 15:29:57,649 train.py:149	 INFO: Epoch 13 train Loss: 0.2269 Acc: 0.9169
+2023-09-29 15:29:58,830 train.py:149	 INFO: Epoch 13 val Loss: 0.4779 Acc: 0.8064
+2023-09-29 15:30:28,316 train.py:149	 INFO: Epoch 14 train Loss: 0.2187 Acc: 0.9169
+2023-09-29 15:30:29,477 train.py:149	 INFO: Epoch 14 val Loss: 0.4851 Acc: 0.8064
+2023-09-29 15:30:51,979 train.py:149	 INFO: Epoch 15 train Loss: 0.2207 Acc: 0.9118
+2023-09-29 15:30:53,161 train.py:149	 INFO: Epoch 15 val Loss: 0.4826 Acc: 0.8006
+2023-09-29 15:31:15,922 train.py:149	 INFO: Epoch 16 train Loss: 0.2125 Acc: 0.9155
+2023-09-29 15:31:17,393 train.py:149	 INFO: Epoch 16 val Loss: 0.4835 Acc: 0.8006
