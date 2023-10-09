@@ -9,9 +9,9 @@ config = {
     #model
 
     NUM_CLASSES = 2,
-    LR = 1e-4, # 0.0001
+    LR = 1e-5, # 0.0001
     NUM_WORKERS = 2,
-    NAME_LOSS = 'CrossEntropy',
+    NAME_LOSS = 'Poly1CrossEntropyLoss',
     WEIGHT_DECAY = 5e-4, 
     MOMENTUM = 0.9,
     PIN_MEMORY = True,

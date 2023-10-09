@@ -69,7 +69,7 @@ def train(args):
     # batch_size : nhóm các hình ảnh với nhau thành 1 tệp ( ví dụ 16 hình ảnh 1 lúc để học trong 1 lần)
     # 3 cái còn lại đọc docs or chatgpt
     trainLoader = DataLoader(trainDataset, batch_size=BATCH_SIZE, \
-                             shuffle= True, num_workers= NUM_WORKERS) # ép về giáo viên 
+                             shuffle= True, num_workers= NUM_WORKERS) 
     valLoader = DataLoader(valDataset, batch_size=BATCH_SIZE, \
                            shuffle= True, num_workers= NUM_WORKERS)
     dataset_sizes = {
