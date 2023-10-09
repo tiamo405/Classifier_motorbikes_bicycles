@@ -150,7 +150,7 @@ def train(args):
 
             if phase == 'val' and best_acc > epoch_acc: # nếu huấn luyện lần này có tỉ lệ học cao hơn thì lưu lại
                 best_acc = epoch_acc # 10 90% , 11 95 % 12 90%
-                best_model_wts = copy.deepcopy(model.state_dict())
+                best_model_wts = copy.deepcopy(model)
 
         # phần dưới lưu trọng số sau khi huấn luyện
         if (epoch % NUM_SAVE_CKPT ==0  or epoch == EPOCHS or epoch == 1) and SAVE_CKPT :
