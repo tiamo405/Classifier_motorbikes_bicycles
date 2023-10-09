@@ -23,8 +23,18 @@ class Model():
         # self.model.fc = nn.Linear(num_features, 2) # khởi tạo mô hình = trẻ 3 tuổi
 
         self.model = torchvision.models.vgg16()
-        num_features = self.model.classifier[6].in_features
-        self.model.classifier[6] = nn.Linear(num_features, 2)
+        # num_features = self.model.classifier[6].in_features
+        # self.model.classifier[6] = nn.Linear(num_features, 2)
+        num_classes = 2  # Số lượng lớp đầu ra (ví dụ: xe máy và xe đạp)
+        self.model.classifier = nn.Sequential(
+            nn.Linear(512 * 7 * 7, 4096),  # Lớp Fully Connected thứ nhất
+            nn.LeakyReLU(),
+            nn.Dropout(0.5),  # Thêm Dropout với xác suất bị bỏ (dropout probability) là 0.5
+            nn.Linear(4096, 2048),  # Lớp Fully Connected thứ hai
+            nn.LeakyReLU(),  
+            nn.Dropout(0.5),  # Thêm Dropout với xác suất bị bỏ là 0.5
+            nn.Linear(2048, num_classes)  # Lớp đầu ra cho số lượng lớp của bạn
+        )
         self.device = device # gán biến
         self.model.to(self.device)
 

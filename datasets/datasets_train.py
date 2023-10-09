@@ -18,8 +18,8 @@ class Datasets(data.Dataset) :
             transforms.ToTensor(),
             transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)), #RBG - RGB 0-1 tensor type numpy int float gpu để train
             transforms.RandomHorizontalFlip(0.5),
-            transforms.RandomRotation(degrees=30),
-            transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.2)
+            # transforms.RandomRotation(degrees=30),
+            # transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.2)
         ])
         path_images = [] # đường dẫn  data/train/xemay/xemay_0000.jpg
         labels = [] # 0 1 0 1 0 1 0 1 1 1 1  0 0 0 1 0 1 0 1 0 0 

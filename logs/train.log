@@ -1,2 +1,2 @@
-2023-10-09 14:27:35,727 train.py:107	 INFO: ******************************
-2023-10-09 14:27:35,727 train.py:108	 INFO: Start train: name model: vgg16, run times 2023-10-09
+2023-10-09 17:10:57,137 train.py:107	 INFO: ******************************
+2023-10-09 17:10:57,137 train.py:108	 INFO: Start train: name model: vgg16, run times 2023-10-09

@@ -60,7 +60,7 @@ def train(args):
     Dataset = Datasets(path_data= DATA_ROOT, load_width= LOAD_WIDTH,\
                           load_height= LOAD_HEIGHT, nb_classes= NUM_CLASSES)
     
-    # chia dữ liệu làm 80% để huấn luyện
+    # chia dữ liệu làm 80% để huấn luyện    
     train_size = int(0.8 * len(Dataset))
     val_size = len(Dataset) - train_size
     trainDataset, valDataset = random_split(Dataset, [train_size, val_size]) # 0 1 2 3 4 5 6 7 8 9 , [8,2] 
@@ -91,11 +91,26 @@ def train(args):
     # else:
     #     model = utils_model.create_model(name_model= NAME_MODEL, num_classes= NUM_CLASSES)
     model = torchvision.models.vgg16()
-    num_features = model.classifier[6].in_features
+    # num_features = model.classifier[6].in_features
+    # model.classifier[6] = nn.Linear(num_features, 2)
+    for param in model.features.parameters():
+      param.requires_grad = False
 
-    model.classifier[6] = nn.Linear(num_features, 2)
+  # Thay đổi lớp cuối cùng (classifier) để thích ứng với bài toán phân loại của bạn
+    num_classes = 2  # Số lượng lớp đầu ra (ví dụ: xe máy và xe đạp)
+    model.classifier = nn.Sequential(
+        nn.Linear(512 * 7 * 7, 4096),  # Lớp Fully Connected thứ nhất
+        nn.LeakyReLU(),
+        nn.Dropout(0.5),  # Thêm Dropout với xác suất bị bỏ (dropout probability) là 0.5
+        nn.Linear(4096, 2048),  # Lớp Fully Connected thứ hai
+        nn.LeakyReLU(),  
+        nn.Dropout(0.5),  # Thêm Dropout với xác suất bị bỏ là 0.5
+        nn.Linear(2048, num_classes)  # Lớp đầu ra cho số lượng lớp của bạn
+    )
+
     model.to(device= DEVICE) # chuyển mô hình sang sử dung gpu hay cpu
     print(model)
+    model.train()
     criterion = utils_loss.create_loss(name_loss= NAME_LOSS, num_classes= NUM_CLASSES) # khởi tạo hàm tính hàm mất mát
 
     optimizer = torch.optim.Adam(model.parameters(), lr = LR,  weight_decay=WEIGHT_DECAY) # hàm tính đạo hàm
@@ -171,18 +186,18 @@ def train(args):
                 }, str(epoch) +'.pth')
         
 
-    model.load_state_dict(best_model_wts) # lưu epoch ma có tỉ lệ đúng cao nhất
+    # model.load_state_dict(best_model_wts) # lưu epoch ma có tỉ lệ đúng cao nhất
     if SAVE_CKPT :
         if TRAIN_ON == 'ssh' :
             torch.save({
                 'epoch': best_epoch,
-                'model_state_dict': model.state_dict(),
+                'model_state_dict': best_model_wts.state_dict(),
             }, os.path.join(CHECKPOINT_DIR, NAME_MODEL, \
                             dir_save_file, ("best_epoch"+".pth"))) 
         else : 
             torch.save({
                 'epoch': best_epoch,
-                'model_state_dict': model.state_dict(),
+                'model_state_dict': best_model_wts.state_dict(),
             }, "best_epoch.pth")
         
 def get_args_parser(): # 
